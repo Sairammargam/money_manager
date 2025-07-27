@@ -1,43 +1,64 @@
-# 💰 Money Manager
+### ✅ `money_manager` – Backend
 
-Money Manager is an application to help you track your income and expenses. Easily record transactions, manage different categories, and get visual insights into your personal finances.
+**Repo:** [https://github.com/Sairammargam/money_manager](https://github.com/Sairammargam/money_manager)
+
+```markdown
+# 🧾 Money Manager Backend
+
+A Spring Boot backend for managing personal financial transactions. It provides REST APIs for tracking expenses and incomes, user authentication, and category management.
 
 ## 🚀 Features
 
-- Add, edit, and delete income and expense entries
-- Categorize transactions (e.g., Food, Rent, Salary)
-- View transaction history
-- Visual reports and charts for better insights
-- Monthly/Yearly financial summaries
-- Responsive and user-friendly interface
+- ✅ Add, update, delete transactions
+- 📊 Get summaries by category or date
+- 🔐 User registration and login (JWT-based if implemented)
+- 🔄 CORS-enabled for frontend integration
+- 🧩 Category-wise spending breakdown
 
 ## 🛠️ Tech Stack
 
-- **Frontend:** React.js 
-- **Backend:** Java Spring Boot
-- **Database:** Postgresql
-- **Visualization:** Chart.js 
+- **Spring Boot**
+- **Spring Data JPA**
+- **PostgreSQL / MySQL** (configurable DB)
+- **Spring Security** (if enabled)
+- **Swagger UI** (for API docs)
 
-## 🏗️ Getting Started
+## 🗂️ Project Structure
+  src/
+├── controller/
+├── service/
+├── repository/
+├── model/
+├── dto/
+└── MoneyManagerApplication.java
+```
 
-### Prerequisites
+## 🔧 Setup Instructions
 
-- [Node.js](https://nodejs.org/) and npm installed 
-- [MySql](https://www.mysql.com/) 
-- Git
+1. **Clone the repository**
 
-### Installation
+```bash
+git clone https://github.com/Sairammargam/money_manager.git
+cd money_manager
+```
 
-1. Clone the repository:
-   - git clone https://github.com/Sairammargam/money_manager.git
-   - cd money_manager
-2. Install dependencies:
-  - npm install
-3. Access the app in your browser or emulator as instructed.
+2. Configure Database
+   - Edit src/main/resources/application.properties:
+      - spring.datasource.url=jdbc:postgresql://localhost:5432/your_db
+      - spring.datasource.username=your_username
+      - spring.datasource.password=your_password
+      - spring.jpa.hibernate.ddl-auto=update
+        
+3. Run the application
+   
+  -  ./mvnw spring-boot:run
+    
+## 📬 API Endpoints Overview
+| Endpoint            | Method          | Description           |
+| ------------------- | --------------- | --------------------- |
+| `/api/transactions` | GET/POST/DELETE | CRUD for transactions |
+| `/api/categories`   | GET             | List categories       |
+| `/api/users`        | POST            | User registration     |
+| `/api/auth/login`   | POST            | Login                 |
 
-## ✨ Usage
 
-- Add financial transactions by selecting a category, entering amount and details.
-- Browse your transaction history in the dashboard.
-- Visualize spending with interactive charts and summaries.
-- Filter transactions by month, year, or category.
